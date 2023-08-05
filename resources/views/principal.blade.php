@@ -7,6 +7,6 @@
 @endsection
 
 @section('contenido')
-    Contenido
+    Content
 @endsection
 
