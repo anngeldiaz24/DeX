@@ -11,16 +11,16 @@
 
 @section('contenido')
     <div class="md:flex md:items-center">
-        <div class="md:w-1/2 px-10">
+        <div class="md:w-1/2 px-10 hola">
             <form action="{{ route('imagenes.store') }}" method="POST" enctype="multipart/form-data" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
                 @csrf
             </form>
         </div>
-        <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">
+        <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0 dark:bg-zinc-900">
             <form action="{{ route('posts.store') }}" method="POST" novalidate>
                 @csrf
                 <div class="mb-5">
-                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold dark:text-white">
                         Title
                     </label>
                     <input 
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="descripcion" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="descripcion" class="mb-2 block uppercase text-gray-500 font-bold dark:text-white">
                         Description
                     </label>
                     <textarea 

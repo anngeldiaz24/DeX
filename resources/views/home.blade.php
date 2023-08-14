@@ -3,10 +3,14 @@
 
 <!-- Con la directiva yield(titulo) en app.blade.php hace referencia -->
 @section('titulo')
-    Main Page
+    HOME
 @endsection
 
 @section('contenido')
-    Content
+    
+    {{-- We are send the posts variable to the
+    component --}}
+    <x-listar-post :posts="$posts" />
+    
 @endsection
 

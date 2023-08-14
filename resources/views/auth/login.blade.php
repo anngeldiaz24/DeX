@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo')
-    Login on DevStagram
+    Login on DeX
 @endsection
 
 @section('contenido')
@@ -11,7 +11,7 @@
             <img src="{{ asset('img/login.jpg') }}" alt="User login image">
         </div>
 
-        <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
+        <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl dark:bg-zinc-900">
             <form  method="POST" action= "{{ route('login') }}"novalidate>
                 @csrf
 
@@ -22,7 +22,7 @@
                 @endif
 
                 <div class="mb-5">
-                    <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="email" class="mb-2 block uppercase text-gray-500 font-bold dark:text-white">
                         Email
                     </label>
                     <input 
@@ -37,7 +37,7 @@
                     @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="password" class="mb-2 block uppercase text-gray-500 font-bold dark:text-white">
                         Password
                     </label>
                     <input 
@@ -52,12 +52,8 @@
                 </div>
 
                 <div class="mb-5">
-                    <input type="checkbox" name="remember"><label class="text-gray-500 text-sm"> Keep me logged in</label>
+                    <input type="checkbox" name="remember"><label class="text-gray-500 text-sm dark:text-white"> Keep me logged in</label>
                 </div>
-
-
-
-
 
                 <input type="Submit" value="Login" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg"/>
             </form>

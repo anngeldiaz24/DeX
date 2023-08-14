@@ -23,4 +23,25 @@ class Post extends Model
         return $this->belongsTo(User::class)->select(['name', 'username']);
     }
 
+    public function comentarios()
+    {
+        //A post has many comments
+        return $this->hasMany(Comentario::class);    
+    }
+
+    public function likes()
+    {
+        //A post has many likes
+        return $this->hasMany(Like::class);
+    }
+
+    public function checkLike(User $user)
+    {
+        //Se posiciona en la tabla de likes
+        //Verifica si un usuario ya le dio like al post
+        //Check the columns
+        return $this->likes->contains('user_id', $user->id);
+    }
+
+
 }

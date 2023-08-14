@@ -6,13 +6,14 @@ use auth;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
     //The user needs to be logged in to get access to the wall  
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('show', 'index');
     }
 
     public function index(User $user)
@@ -23,7 +24,8 @@ class PostController extends Controller
         //Here, index will show the user only the posts with his/her id
         //$posts = Post::where('user_id', $user->id)->get();
         //It will paginate the posts every 20 posts
-        $posts = Post::where('user_id', $user->id)->paginate(20);
+        //latest puts the last post made in the first place
+        $posts = Post::where('user_id', $user->id)->latest()->paginate(20);
         //dd($posts);
         
         return view('dashboard', [
@@ -74,6 +76,32 @@ class PostController extends Controller
 
         return redirect()->route('posts.index', auth()->user()->username);
         
+    }
+
+    public function show(User $user, Post $post)
+    {
+        //Here we send the post object to the view (show)
+        return view('posts.show', [
+            'post' => $post,
+            'user' => $user
+        ]);
+    }
+
+    public function destroy(Post $post)
+    {
+        $this->authorize('delete', $post);
+        $post->delete();
+
+        //Eliminar imagen
+        $imagen_path = public_path('uploads/' . $post->imagen);
+
+        if(File::exists($imagen_path)){
+            unlink($imagen_path);
+        }
+
+        return redirect()->route('posts.index', auth()->user()->username);
+
+
     }
 }
 

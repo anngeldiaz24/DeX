@@ -13,7 +13,15 @@ class RegisterController extends Controller
 {
     public function index() 
     {
-        return view('auth.register');
+        //If the user has already registered or login
+        //the system will redirect them to the home page
+        if(auth()->user()){
+            return redirect()->route('home', [
+              'posts' => auth()->user()->posts
+            ]);
+        }else{
+            return view('auth.register');
+        }
     }
 
     public function store(Request $request)

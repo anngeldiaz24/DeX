@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo')
-    Create an account on DevStagram
+    Create an account on DeX
 @endsection
 
 @section('contenido')
@@ -11,11 +11,11 @@
             <img src="{{ asset('img/registrar.jpg') }}" alt="User register image">
         </div>
 
-        <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
+        <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl dark:bg-zinc-900">
             <form action="{{ route('create-account') }}" method="POST" novalidate>
                 @csrf
                 <div class="mb-5">
-                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold dark:text-white">
                         Name
                     </label>
                     <input 
@@ -30,7 +30,7 @@
                     @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="username" class="mb-2 block uppercase text-gray-500 font-bold dark:text-white">
                         Nickname
                     </label>
                     <input 
@@ -45,7 +45,7 @@
                     @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="email" class="mb-2 block uppercase text-gray-500 font-bold dark:text-white">
                         Email
                     </label>
                     <input 
@@ -60,7 +60,7 @@
                     @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="password" class="mb-2 block uppercase text-gray-500 font-bold dark:text-white">
                         Password
                     </label>
                     <input 
@@ -74,7 +74,7 @@
                     @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="password_confirmation" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="password_confirmation" class="mb-2 block uppercase text-gray-500 font-bold dark:text-white">
                        Password Confirmation
                     </label>
                     <input 

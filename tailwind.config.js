@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class",
   content: [
     /* Con esto agregamos tailwind css a todas nuestras vistas */
     "./resources/**/*.blade.php",

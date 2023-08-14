@@ -9,7 +9,14 @@ class LoginController extends Controller
   
     public function index()
     {
-        return view('auth.login');
+        if(auth()->user()){
+            return redirect()->route('home', [
+              'posts' => auth()->user()->posts
+            ]);
+        }else {
+            return view('auth.login');
+        }
+        
     }
 
     public function store(Request $request)
