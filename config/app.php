@@ -82,7 +82,7 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
+    //Here, you can change the language of your application
     'locale' => 'en',
 
     /*
@@ -168,6 +168,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //Service requiered to upload the images
+        Intervention\Image\ImageServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -183,6 +185,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        //Service requiered to upload the images with format
+        'Image' => Intervention\Image\Facades\Image::class
     ])->toArray(),
 
 ];
